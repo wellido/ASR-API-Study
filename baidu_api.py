@@ -3,6 +3,7 @@
 import sys
 import json
 import time
+import argparse
 
 IS_PY3 = sys.version_info.major == 3
 
@@ -79,9 +80,13 @@ if __name__ == '__main__':
     opener = urllib2.build_opener(httpHandler)
     urllib2.install_opener(opener)
     """
-
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--wav_path", type=str,
+                        help="path of wave file")
+    args = parser.parse_args()
+    wav_path = args.wav_path
     speech_data = []
-    with open(AUDIO_FILE, 'rb') as speech_file:
+    with open(wav_path, 'rb') as speech_file:
         speech_data = speech_file.read()
     length = len(speech_data)
     if length == 0:
@@ -108,6 +113,6 @@ if __name__ == '__main__':
 
     if (IS_PY3):
         result_str = str(result_str, 'utf-8')
-    print(result_str)
-    with open("result.txt", "w") as of:
-        of.write(result_str)
+    print('Recognize result: ' + result_str[result_str.index("[") + 2: result_str.index("]") - 1])
+    # with open("result.txt", "w") as of:
+    #     of.write(result_str)
