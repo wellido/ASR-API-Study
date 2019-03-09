@@ -52,7 +52,7 @@ if __name__ == '__main__':
     url = 'http://nls-gateway.cn-shanghai.aliyuncs.com/stream/v1/asr'
     # 音频文件
     audioFile = wav_path
-    format = 'wav'
+    format = 'pcm'
     sampleRate = 16000
     enablePunctuationPrediction = True
     enableInverseTextNormalization = True

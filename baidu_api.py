@@ -19,8 +19,7 @@ SECRET_KEY = '2GXrGYyHfZtZSAtxCf2yhG38lUUDDLhi'
 
 # 需要识别的文件
 AUDIO_FILE = 'wav/extra_0a.wav' # 只支持 pcm/wav/amr
-# 文件格式
-FORMAT = AUDIO_FILE[-3:]  # 文件后缀只支持 pcm/wav/amr
+
 
 # 根据文档填写PID，选择语言及识别模型
 DEV_PID = 1737  # 1537 表示识别普通话，使用输入法模型。1536表示识别普通话，使用搜索模型
@@ -74,6 +73,9 @@ def fetch_token():
 
 if __name__ == '__main__':
     token = fetch_token()
+    # 文件格式
+    FORMAT = AUDIO_FILE[-3:]  # 文件后缀只支持 pcm/wav/amr
+    # FORMAT = 'pcm'
 
     """
     httpHandler = urllib2.HTTPHandler(debuglevel=1)
