@@ -54,7 +54,7 @@ def fetch_token():
 request_url = "https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general"
 
 # 二进制方式打开图片文件
-f = open('img/test.png', 'rb')
+f = open('../data/img/test.png', 'rb')
 img = base64.b64encode(f.read())
 
 
